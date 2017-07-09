@@ -1,9 +1,11 @@
-ARG ALPINE_VERSION=3.6
+ARG VERSION=3.6
 
-FROM alpine:${ALPINE_VERSION}
+FROM alpine:${VERSION}
+
+ARG VERSION
 
 LABEL maintainer="timo.schaefer@safisto.de" \
-      version="${ALPINE_VERSION}" \
+      version="${VERSION}" \
       description="Docker image for test purposes only."
 
-RUN echo "ALPINE VERSION: $ALPINE_VERSION" >  /RELEASE
+RUN echo "VERSION: $VERSION" >  /RELEASE
