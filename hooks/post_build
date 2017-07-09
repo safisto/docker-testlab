@@ -5,4 +5,18 @@ set -e
 echo "------ HOOK START - POST_BUILD -------"
 printenv
 
+IMAGE_BASE=${IMAGE_NAME%%:*}
+VERSION_MAJOR=`echo $SOURCE_BRANCH | cut -d. -f1`
+VERSION_MINOR=`echo $SOURCE_BRANCH | cut -d. -f2`
+VERSION_PATCH=`echo $SOURCE_BRANCH | cut -d. -f3`
+
+
+IMAGE_TAG=${VERSION_MAJOR}.${VERSION_MINOR}
+
+echo "Tagging $IMAGE_TAG ..."
+docker tag $IMAGE_NAME $IMAGE_TAG 
+
+echo "Pushing $IMAGE_TAG ..."
+docker push $IMAGE_TAG
+
 echo "------ HOOK END - POST_BUILD -------"
