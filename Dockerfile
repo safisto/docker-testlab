@@ -1,15 +1,18 @@
 FROM debian:jessie
 
 ARG BUILD_DATE
-ARG IMAGE_NAME
-ARG GIT_SHA1
+ARG BUILD_NAME
+ARG BUILD_VERSION
+ARG BUILD_COMMIT
 
 LABEL maintainer="timo.schaefer@safisto.de" \
       build.date="${BUILD_DATE}" \
-      build.name="${IMAGE_NAME}" \
-      build.commit="${GIT_SHA1}" \
+      build.name="${BUILD_NAME}" \
+      build.version="${BUILD_VERSION}" \
+      build.commit="${BUILD_COMMIT}" \
       description="Docker image for test purposes only."
 
-RUN echo "BUILD DATE:   $BUILD_DATE" >  /RELEASE && \
-    echo "BUILD NAME:   $IMAGE_NAME" >> /RELEASE && \
-    echo "BUILD COMMIT: $GIT_SHA1"   >> /RELEASE
+RUN echo "BUILD DATE:     $BUILD_DATE"   >  /RELEASE && \
+    echo "BUILD NAME:     $BUILD_NAME"   >> /RELEASE && \
+    echo "BUILD VERSION:  $BUILD_NAME"   >> /RELEASE && \
+    echo "BUILD COMMIT:   $BUILD_COMMIT" >> /RELEASE
