@@ -1,11 +1,11 @@
-ARG VERSION=3.6
+FROM debian:jessie
 
-FROM alpine:${VERSION}
-
-ARG VERSION
+ARG BUILD_DATE
+ARG VCS_REF
 
 LABEL maintainer="timo.schaefer@safisto.de" \
-      version="${VERSION}" \
+      build.date="${BUILD_DATE}" \
       description="Docker image for test purposes only."
 
-RUN echo "VERSION: $VERSION" >  /RELEASE
+RUN echo "BUILD DATE: $BUILD_DATE" >  /RELEASE && \
+    echo "VCS REF:    $VCS_REF"    >> /RELEASE
