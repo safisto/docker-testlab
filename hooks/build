@@ -10,3 +10,4 @@ docker build \
   -t $IMAGE_NAME .
 
 echo "------ HOOK END - BUILD -------"
+
