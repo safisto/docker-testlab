@@ -12,7 +12,7 @@ LABEL maintainer="timo.schaefer@safisto.de" \
       build.commit="${BUILD_COMMIT}" \
       description="Docker image for test purposes only."
 
-RUN echo "BUILD DATE:     $BUILD_DATE"   >  /RELEASE && \
-    echo "BUILD NAME:     $BUILD_NAME"   >> /RELEASE && \
-    echo "BUILD VERSION:  $BUILD_NAME"   >> /RELEASE && \
-    echo "BUILD COMMIT:   $BUILD_COMMIT" >> /RELEASE
+RUN echo "BUILD DATE:     $BUILD_DATE"    >  /RELEASE && \
+    echo "BUILD NAME:     $BUILD_NAME"    >> /RELEASE && \
+    echo "BUILD VERSION:  $BUILD_VERSION" >> /RELEASE && \
+    echo "BUILD COMMIT:   $BUILD_COMMIT"  >> /RELEASE
